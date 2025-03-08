@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Flame';
-  src: url('FONTS/Flame-Bold.otf') format('opentype');
+  /* Ajusta la ruta de la fuente a ./FONTS/Flame-Bold.otf */
+  src: url('./FONTS/Flame-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
@@ -13,7 +14,7 @@ body {
   transition: background-color 1s ease-in-out, transform 0.5s ease;
 }
 
-/* Preloader común */
+/* Contenedor de la precarga (común para logo y nombres) */
 .preloader {
   position: fixed;
   width: 100%;
@@ -28,11 +29,12 @@ body {
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
-/* Preloader Logo */
+/* Primera precarga (Logo) */
 #preloader-logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Pequeña animación de entrada */
   animation: fade-in 1.5s ease-in-out;
 }
 
@@ -41,23 +43,21 @@ body {
   height: auto;
 }
 
-/* Preloader Nombres */
+/* Segunda precarga (Nombres) */
 #preloader-names {
-  display: none;
+  display: none;        /* se mostrará dinámicamente en script.js */
   width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
-  /* Para pantallas grandes se usa 2cm; en móviles se sobreescribe en media query */
-  padding: 2cm;
+  padding: 2cm;         /* en móviles se ajusta en media query */
   box-sizing: border-box;
 }
 
 .names-container {
   position: absolute;
-  /* Se resta el padding doble para ocupar el espacio interno */
-  width: calc(100% - 4cm);
-  height: calc(100% - 4cm);
+  width: calc(100% - 4cm); /* se descuenta el padding horizontal */
+  height: calc(100% - 4cm);/* se descuenta el padding vertical   */
   animation: moveUp 8s linear forwards;
   display: flex;
   flex-wrap: wrap;
@@ -81,28 +81,46 @@ body {
   -webkit-text-stroke: 2px #FD933A;
 }
 
-/* Animaciones */
+/* Animaciones de fade in/out */
 @keyframes fade-in {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes fade-out {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(1.2); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
+/* Animación de los nombres subiendo */
 @keyframes moveUp {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-100vh); }
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
 }
 
+/* Clase para ocultar con fade-out */
 .hidden {
   animation: fade-out 1s ease-in-out forwards;
   visibility: hidden;
 }
 
-/* Animación letra por letra (final.js) */
+/* Animaciones para el texto final (final.js) */
 @keyframes explodeLetter {
   0% {
     opacity: 0;
@@ -139,7 +157,7 @@ body {
   animation: fillText 1s forwards;
 }
 
-/* Ajustes para pantallas móviles */
+/* Ajustes responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
   #preloader-names {
     padding: 1rem;

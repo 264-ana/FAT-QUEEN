@@ -1,5 +1,6 @@
+// Esperamos a que finalice la animación de los nombres (11.6s desde que inició todo)
 setTimeout(() => {
-  // Crear contenedor final centrado
+  // Contenedor centrado
   const container = document.createElement("div");
   container.style.position = "fixed";
   container.style.top = "50%";
@@ -10,6 +11,7 @@ setTimeout(() => {
   container.style.fontFamily = "'Flame', Arial, sans-serif";
   container.style.color = "#F7EBDB";
 
+  // Estructura en grid
   container.innerHTML = `
     <div id="grid" style="
       position: relative;
@@ -18,7 +20,7 @@ setTimeout(() => {
       align-items: center;
       justify-items: center;
     ">
-      <!-- Fila 1: Texto animado letra por letra -->
+      <!-- Fila 1 -->
       <div id="line1" style="
         font-size: 3rem;
         margin: 0 0 0.1rem 0; 
@@ -26,7 +28,8 @@ setTimeout(() => {
       ">
         HOY, TÚ ERES LA
       </div>
-      <!-- Fila 2: "QUEEN" con animación de entrada -->
+
+      <!-- Fila 2: "QUEEN" -->
       <div id="line2" style="
         font-size: 8rem;
         margin: 0 0 2rem 0; 
@@ -35,6 +38,7 @@ setTimeout(() => {
       ">
         QUEEN
       </div>
+
       <!-- Fila 3: Texto secundario -->
       <div id="line3" style="
         font-size: 1.4rem;
@@ -46,14 +50,15 @@ setTimeout(() => {
       ">
         (No importa qué día lo leas)
       </div>
-      <!-- Fila 4: Contenedor para el botón -->
+
+      <!-- Fila 4: Contenedor del botón -->
       <div id="line4" style="margin-top: 1rem;"></div>
     </div>
   `;
 
   document.body.appendChild(container);
 
-  // Función para animar letra por letra
+  // Función: animar letra por letra
   function applyExplosionEffectByLetters(element, delayIncrement = 0.1) {
     const text = element.textContent;
     element.textContent = "";
@@ -73,10 +78,11 @@ setTimeout(() => {
     }
   }
 
+  // Aplicar efecto a la línea 1
   const line1El = document.getElementById("line1");
   applyExplosionEffectByLetters(line1El, 0.1);
 
-  // Ajuste de "QUEEN" para igualar ancho a "HOY, TÚ ERES LA"
+  // Ajustar "QUEEN" al ancho de "HOY, TÚ ERES LA"
   const line2El = document.getElementById("line2");
   requestAnimationFrame(() => {
     const line1Width = line1El.getBoundingClientRect().width;
@@ -87,7 +93,7 @@ setTimeout(() => {
       const newSize = currentFontSize * scaleFactor;
       line2El.style.fontSize = newSize + "px";
     }
-    // Ocultar temporalmente "QUEEN" hasta la animación
+    // Ocultar mientras no se anima
     line2El.style.opacity = "0";
   });
 
@@ -95,6 +101,8 @@ setTimeout(() => {
   function animateQueenEntrance() {
     const finalQueenEl = document.getElementById("line2");
     const finalFontSize = window.getComputedStyle(finalQueenEl).fontSize;
+    
+    // Elemento temporal para la animación
     const tempQueen = document.createElement("div");
     tempQueen.textContent = finalQueenEl.textContent;
     tempQueen.style.position = "absolute";
@@ -103,8 +111,10 @@ setTimeout(() => {
     tempQueen.style.width = finalQueenEl.offsetWidth + "px";
     tempQueen.style.fontFamily = window.getComputedStyle(finalQueenEl).fontFamily;
     tempQueen.style.color = window.getComputedStyle(finalQueenEl).color;
+    // 3x el tamaño final
     tempQueen.style.fontSize = (parseFloat(finalFontSize) * 3) + "px";
     tempQueen.style.lineHeight = finalQueenEl.style.lineHeight;
+    // Inicia a la derecha de la pantalla
     tempQueen.style.transform = "translateX(100vw)";
     tempQueen.style.opacity = "1";
     tempQueen.style.transition = "transform 1.5s ease-in-out";
@@ -112,9 +122,11 @@ setTimeout(() => {
     const gridEl = document.getElementById("grid");
     gridEl.appendChild(tempQueen);
 
+    // Forzar reflow e iniciar la animación
     void tempQueen.offsetWidth;
     tempQueen.style.transform = "translateX(-200vw)";
 
+    // Al terminar, quitar el elemento temporal y mostrar "QUEEN" final con contorno->relleno
     tempQueen.addEventListener("transitionend", function handler() {
       tempQueen.removeEventListener("transitionend", handler);
       tempQueen.parentElement.removeChild(tempQueen);
@@ -131,6 +143,7 @@ setTimeout(() => {
     });
   }
 
+  // Animar la línea 3
   function animateLine3() {
     const line3El = document.getElementById("line3");
     line3El.style.transition = "opacity 0.8s ease-in-out, transform 0.8s ease-in-out";
@@ -139,6 +152,7 @@ setTimeout(() => {
     setTimeout(animateButtonPop, 800);
   }
 
+  // Botón "ENCONTRARME"
   function animateButtonPop() {
     const line4El = document.getElementById("line4");
     const buttonEl = document.createElement("button");
@@ -155,21 +169,25 @@ setTimeout(() => {
     buttonEl.style.transition = "transform 0.5s ease, opacity 0.5s ease, background-color 0.3s";
     buttonEl.style.opacity = "0";
     buttonEl.style.transform = "scale(0.5)";
+
     buttonEl.addEventListener("mouseover", () => {
       buttonEl.style.backgroundColor = "#FDA45B";
     });
     buttonEl.addEventListener("mouseout", () => {
       buttonEl.style.backgroundColor = "#F7EBDB";
     });
+
     line4El.appendChild(buttonEl);
+
     void buttonEl.offsetWidth;
     buttonEl.style.transform = "scale(1)";
     buttonEl.style.opacity = "1";
   }
 
+  // Iniciar la animación de "QUEEN" después de 500ms
   setTimeout(animateQueenEntrance, 500);
 
-  // Agregar "By" + logo en esquina inferior derecha
+  // "By" + logo en la esquina inferior derecha
   const brandContainer = document.createElement("div");
   brandContainer.style.position = "fixed";
   brandContainer.style.bottom = "1rem";
@@ -186,8 +204,9 @@ setTimeout(() => {
   byText.style.fontFamily = "'Flame', Arial, sans-serif";
   byText.style.color = "#F7EBDB";
 
+  // Ajusta la ruta de la imagen a ./FOTOS/FGB.png
   const logoImg = document.createElement("img");
-  logoImg.src = "FOTOS/FGB.png";  /* Verifica la ruta */
+  logoImg.src = "./FOTOS/FGB.png";
   logoImg.alt = "Fat Guys Logo";
   logoImg.style.width = "80px";
   logoImg.style.height = "auto";
@@ -195,4 +214,5 @@ setTimeout(() => {
   brandContainer.appendChild(byText);
   brandContainer.appendChild(logoImg);
   document.body.appendChild(brandContainer);
+
 }, 11600);
