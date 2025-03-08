@@ -34,7 +34,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Pequeña animación de entrada */
   animation: fade-in 1.5s ease-in-out;
 }
 
@@ -45,19 +44,19 @@ body {
 
 /* Segunda precarga (Nombres) */
 #preloader-names {
-  display: none;        /* se mostrará dinámicamente en script.js */
+  display: none; /* Se muestra dinámicamente en script.js */
   width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 2cm;         /* en móviles se ajusta en media query */
+  padding: 2cm; /* en móviles se ajusta en media query */
   box-sizing: border-box;
 }
 
 .names-container {
   position: absolute;
-  width: calc(100% - 4cm); /* se descuenta el padding horizontal */
-  height: calc(100% - 4cm);/* se descuenta el padding vertical   */
+  width: calc(100% - 4cm); /* Se descuenta el padding horizontal */
+  height: calc(100% - 4cm); /* Se descuenta el padding vertical */
   animation: moveUp 8s linear forwards;
   display: flex;
   flex-wrap: wrap;
@@ -70,10 +69,10 @@ body {
   color: #FD933A;
   font-weight: bold;
   position: relative;
-  white-space: nowrap;       /* (Por defecto) */
-  max-width: 90%;            /* (Por defecto) */
-  overflow: hidden;          /* (Por defecto) */
-  text-overflow: ellipsis;   /* (Por defecto) */
+  white-space: nowrap;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .name.outline {
@@ -159,7 +158,6 @@ body {
 
 /* Ajustes responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
-  /* Ajusta padding para que quepan mejor los nombres */
   #preloader-names {
     padding: 1rem;
   }
@@ -168,26 +166,13 @@ body {
     height: calc(100% - 2rem);
   }
   
-  /* 
-    1) Que los nombres se vean completos:
-       Quitamos nowrap, overflow y ellipsis en móvil
-  */
+  /* Para que los nombres se muestren completos */
   .name {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
-    max-width: 100%; /* Para que use todo el ancho si necesita */
+    max-width: 100%;
   }
-
-  /*
-    2) Reducir tamaño de "HOY, TÚ ERES LA" y "QUEEN" en móvil
-       Sin quitar la lógica dinámica de final.js
-       (el script seguirá escalando "QUEEN" en base al ancho de "HOY, TÚ ERES LA")
-  */
-  #line1 {
-    font-size: 1.5rem !important;
-  }
-  #line2 {
-    font-size: 4rem !important;
-  }
+  
+  /* Puedes ajustar tamaños base si lo deseas en móvil */
 }

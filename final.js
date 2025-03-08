@@ -1,6 +1,107 @@
-// Esperamos a que finalice la animación de los nombres (11.6s desde que inició todo)
+// Función que muestra el prompt para ingresar el nombre
+function showNamePrompt() {
+  // Crear overlay que cubra toda la pantalla
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+  overlay.style.display = "flex";
+  overlay.style.flexDirection = "column";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.zIndex = "11000";
+  
+  // Crear contenedor del formulario
+  const formContainer = document.createElement("div");
+  formContainer.style.backgroundColor = "#F7EBDB";
+  formContainer.style.padding = "2rem";
+  formContainer.style.borderRadius = "10px";
+  formContainer.style.textAlign = "center";
+  formContainer.style.width = "80%";
+  formContainer.style.maxWidth = "400px";
+  
+  // Título o indicación
+  const title = document.createElement("h2");
+  title.textContent = "Ingresa tu nombre:";
+  title.style.marginBottom = "1rem";
+  title.style.color = "#D82B02";
+  
+  // Input para el nombre
+  const nameInput = document.createElement("input");
+  nameInput.type = "text";
+  nameInput.placeholder = "Tu nombre";
+  nameInput.style.padding = "0.5rem";
+  nameInput.style.width = "100%";
+  nameInput.style.fontSize = "1rem";
+  nameInput.style.marginBottom = "1rem";
+  
+  // Botón para enviar
+  const submitBtn = document.createElement("button");
+  submitBtn.textContent = "Enviar";
+  submitBtn.style.padding = "0.75rem 2rem";
+  submitBtn.style.fontSize = "1rem";
+  submitBtn.style.fontWeight = "bold";
+  submitBtn.style.border = "none";
+  submitBtn.style.borderRadius = "2rem";
+  submitBtn.style.backgroundColor = "#D82B02";
+  submitBtn.style.color = "#F7EBDB";
+  submitBtn.style.cursor = "pointer";
+  
+  // Función para enviar el nombre
+  function submitName() {
+    const nombre = nameInput.value.trim();
+    if (nombre !== "") {
+      overlay.remove();
+      showPersonalizedMessage(nombre);
+    }
+  }
+  
+  submitBtn.addEventListener("click", submitName);
+  nameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      submitName();
+    }
+  });
+  
+  formContainer.appendChild(title);
+  formContainer.appendChild(nameInput);
+  formContainer.appendChild(submitBtn);
+  overlay.appendChild(formContainer);
+  document.body.appendChild(overlay);
+}
+
+// Función que muestra el mensaje personalizado con frase motivadora
+function showPersonalizedMessage(nombre) {
+  const messageContainer = document.createElement("div");
+  messageContainer.style.position = "fixed";
+  messageContainer.style.top = "50%";
+  messageContainer.style.left = "50%";
+  messageContainer.style.transform = "translate(-50%, -50%)";
+  messageContainer.style.zIndex = "11000";
+  messageContainer.style.backgroundColor = "#D82B02";
+  messageContainer.style.padding = "2rem";
+  messageContainer.style.borderRadius = "10px";
+  messageContainer.style.textAlign = "center";
+  messageContainer.style.color = "#F7EBDB";
+  messageContainer.style.fontFamily = "'Flame', Arial, sans-serif";
+  
+  // Texto provisional personalizado
+  messageContainer.innerHTML = `
+    <p>Hola <strong>${nombre}</strong> 👑, por ahora es el texto que vas a poner, hasta que te pase el texto</p>
+  `;
+  
+  document.body.appendChild(messageContainer);
+}
+
+// ============================
+// Código existente de final.js
+// ============================
+
 setTimeout(() => {
-  // Contenedor centrado
+  // Contenedor centrado para el texto final
   const container = document.createElement("div");
   container.style.position = "fixed";
   container.style.top = "50%";
@@ -152,11 +253,11 @@ setTimeout(() => {
     setTimeout(animateButtonPop, 800);
   }
 
-  // Botón "ENCONTRARME"
+  // Botón "SOY LA QUEEN"
   function animateButtonPop() {
     const line4El = document.getElementById("line4");
     const buttonEl = document.createElement("button");
-    buttonEl.textContent = "ENCONTRARME";
+    buttonEl.textContent = "SOY LA QUEEN"; // Texto en mayúsculas
     buttonEl.style.backgroundColor = "#F7EBDB";
     buttonEl.style.color = "#D82B02";
     buttonEl.style.border = "none";
@@ -175,6 +276,11 @@ setTimeout(() => {
     });
     buttonEl.addEventListener("mouseout", () => {
       buttonEl.style.backgroundColor = "#F7EBDB";
+    });
+    
+    // Al hacer clic, se muestra el prompt para ingresar nombre
+    buttonEl.addEventListener("click", () => {
+      showNamePrompt();
     });
 
     line4El.appendChild(buttonEl);
@@ -204,7 +310,6 @@ setTimeout(() => {
   byText.style.fontFamily = "'Flame', Arial, sans-serif";
   byText.style.color = "#F7EBDB";
 
-  // Ajusta la ruta de la imagen a ./FOTOS/FGB.png
   const logoImg = document.createElement("img");
   logoImg.src = "./FOTOS/FGB.png";
   logoImg.alt = "Fat Guys Logo";

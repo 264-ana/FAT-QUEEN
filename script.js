@@ -10,11 +10,10 @@ function colocarNombres() {
   const container = document.getElementById("namesContainer");
   container.innerHTML = "";
 
-  // Barajar todo el array de nombres para que aparezcan en orden aleatorio
+  // Barajar el array completo para mostrar los nombres en orden aleatorio
   const nombresBarajados = [...nombres].sort(() => Math.random() - 0.5);
 
   // Seleccionar 12 nombres aleatorios para resaltar con "outline"
-  // Se baraja de nuevo el array para seleccionar nombres al azar
   const nombresAleatorios = [...nombres].sort(() => Math.random() - 0.5).slice(0, 12);
 
   // Ajustar tamaño de fuente según ancho de pantalla
@@ -22,7 +21,6 @@ function colocarNombres() {
   const minSize = isMobile ? 20 : 50;
   const maxSize = isMobile ? 40 : 100;
 
-  // Recorrer el array barajado en lugar del original
   for (let i = 0; i < nombresBarajados.length; i++) {
     const nameElement = document.createElement("span");
     nameElement.classList.add("name");
@@ -32,7 +30,7 @@ function colocarNombres() {
     const randomSize = Math.floor(Math.random() * (maxSize - minSize)) + minSize;
     nameElement.style.fontSize = randomSize + "px";
 
-    // Marcar algunos nombres con "outline" si están en el array de nombresAleatorios
+    // Marcar algunos nombres con "outline"
     if (nombresAleatorios.includes(nombresBarajados[i])) {
       nameElement.classList.add("outline");
     }
