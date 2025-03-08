@@ -14,7 +14,9 @@ body {
   transition: background-color 1s ease-in-out, transform 0.5s ease;
 }
 
-/* Contenedor de la precarga (común para logo y nombres) */
+/* =======================
+   Preloaders y animación
+   ======================= */
 .preloader {
   position: fixed;
   width: 100%;
@@ -28,42 +30,32 @@ body {
   opacity: 1;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
-
-/* Primera precarga (Logo) */
 #preloader-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   animation: fade-in 1.5s ease-in-out;
 }
-
 #preloader-logo img {
   width: 250px;
   height: auto;
 }
-
-/* Segunda precarga (Nombres) */
 #preloader-names {
-  display: none; /* Se muestra dinámicamente en script.js */
+  display: none;
   width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 2cm; /* en móviles se ajusta en media query */
+  padding: 2cm;
   box-sizing: border-box;
 }
-
 .names-container {
   position: absolute;
-  width: calc(100% - 4cm); /* Se descuenta el padding horizontal */
-  height: calc(100% - 4cm); /* Se descuenta el padding vertical */
+  width: calc(100% - 4cm);
+  height: calc(100% - 4cm);
   animation: moveUp 8s linear forwards;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
 }
-
 .name {
   font-family: 'Flame', sans-serif;
   color: #FD933A;
@@ -74,13 +66,12 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .name.outline {
   color: transparent;
   -webkit-text-stroke: 2px #FD933A;
 }
 
-/* Animaciones de fade in/out */
+/* Animaciones */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -91,7 +82,6 @@ body {
     transform: scale(1);
   }
 }
-
 @keyframes fade-out {
   from {
     opacity: 1;
@@ -102,8 +92,6 @@ body {
     transform: scale(1.2);
   }
 }
-
-/* Animación de los nombres subiendo */
 @keyframes moveUp {
   from {
     transform: translateY(100vh);
@@ -112,14 +100,12 @@ body {
     transform: translateY(-100vh);
   }
 }
-
-/* Clase para ocultar con fade-out */
 .hidden {
   animation: fade-out 1s ease-in-out forwards;
   visibility: hidden;
 }
 
-/* Animaciones para el texto final (final.js) */
+/* Letras que explotan y relleno de texto */
 @keyframes explodeLetter {
   0% {
     opacity: 0;
@@ -134,13 +120,11 @@ body {
     transform: scale(1) rotate(0deg);
   }
 }
-
 .explode-letter {
   display: inline-block;
   opacity: 0;
   animation: explodeLetter 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) forwards;
 }
-
 @keyframes fillText {
   0% {
     color: transparent;
@@ -151,7 +135,6 @@ body {
     -webkit-text-stroke: 0px;
   }
 }
-
 .fill-text {
   animation: fillText 1s forwards;
 }
@@ -165,14 +148,88 @@ body {
     width: calc(100% - 2rem);
     height: calc(100% - 2rem);
   }
-  
-  /* Para que los nombres se muestren completos */
   .name {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
     max-width: 100%;
   }
-  
-  /* Puedes ajustar tamaños base si lo deseas en móvil */
+}
+
+/* ==============================
+   Pantallas finales / Buttons
+   ============================== */
+.final-page, .love-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F7EBDB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Logo más pequeño */
+.fat-queen-logo {
+  width: 150px; 
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+/* Saludo grande */
+.final-page h1 {
+  font-size: 3rem;
+  color: #D82B02;
+  margin-bottom: 1rem;
+}
+
+/* Texto de la frase */
+.frase-container {
+  color: #FD933A;
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+/* Contenedor de botones */
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Botones con estilo */
+.final-btn {
+  background-color: #D82B02;
+  color: #F7EBDB;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.final-btn:hover {
+  background-color: #FDA45B;
+  transform: scale(1.05);
+}
+
+/* Love page (el texto final de "Nosotros también te queremos...") */
+.love-page h1 {
+  font-size: 2rem;
+  color: #D82B02;
+  margin-bottom: 1rem;
+}
+.love-page p {
+  color: #FD933A;
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.4;
+  margin: 1rem 0;
 }

@@ -1,5 +1,26 @@
-// Función que muestra el prompt para ingresar el nombre
+/*****************************************************
+ * 1) FRASES MOTIVADORAS ALEATORIAS
+ *****************************************************/
+const frasesAleatorias = [
+  "Eres más fuerte de lo que piensas.",
+  "Cada día es una nueva oportunidad para brillar.",
+  "No olvides sonreír: tu luz puede iluminar a otros.",
+  "Confía en ti, y el resto llegará solo.",
+  "Una QUEEN siempre se levanta, incluso con la corona torcida."
+];
+
+function getRandomFrase() {
+  const index = Math.floor(Math.random() * frasesAleatorias.length);
+  return frasesAleatorias[index];
+}
+
+/*****************************************************
+ * 2) FORMULARIO PARA INGRESAR NOMBRE
+ *****************************************************/
 function showNamePrompt() {
+  // Limpiar todo para que se vea "desde cero"
+  document.body.innerHTML = "";
+
   // Crear overlay que cubra toda la pantalla
   const overlay = document.createElement("div");
   overlay.style.position = "fixed";
@@ -54,7 +75,7 @@ function showNamePrompt() {
   function submitName() {
     const nombre = nameInput.value.trim();
     if (nombre !== "") {
-      overlay.remove();
+      overlay.remove(); // Eliminar overlay
       showPersonalizedMessage(nombre);
     }
   }
@@ -73,35 +94,118 @@ function showNamePrompt() {
   document.body.appendChild(overlay);
 }
 
-// Función que muestra el mensaje personalizado con frase motivadora
+/*****************************************************
+ * 3) PANTALLA FINAL (Hola Nombre + FRASE)
+ *****************************************************/
 function showPersonalizedMessage(nombre) {
-  const messageContainer = document.createElement("div");
-  messageContainer.style.position = "fixed";
-  messageContainer.style.top = "50%";
-  messageContainer.style.left = "50%";
-  messageContainer.style.transform = "translate(-50%, -50%)";
-  messageContainer.style.zIndex = "11000";
-  messageContainer.style.backgroundColor = "#D82B02";
-  messageContainer.style.padding = "2rem";
-  messageContainer.style.borderRadius = "10px";
-  messageContainer.style.textAlign = "center";
-  messageContainer.style.color = "#F7EBDB";
-  messageContainer.style.fontFamily = "'Flame', Arial, sans-serif";
-  
-  // Texto provisional personalizado
-  messageContainer.innerHTML = `
-    <p>Hola <strong>${nombre}</strong> 👑, por ahora es el texto que vas a poner, hasta que te pase el texto</p>
-  `;
-  
-  document.body.appendChild(messageContainer);
+  // Limpiamos el body para que se vea como una nueva página
+  document.body.innerHTML = "";
+
+  // Creamos un contenedor principal
+  const finalPage = document.createElement("div");
+  finalPage.classList.add("final-page");
+
+  // Logo
+  const logoImg = document.createElement("img");
+  logoImg.src = "./FOTOS/LOGOFG.png";
+  logoImg.alt = "Fat Queen Logo";
+  logoImg.classList.add("fat-queen-logo");
+
+  // Saludo grande
+  const saludo = document.createElement("h1");
+  saludo.innerHTML = `Hola ${nombre}! <span style="font-size:1.5rem;">👑</span>`;
+
+  // Contenedor de frase
+  const fraseContainer = document.createElement("div");
+  fraseContainer.classList.add("frase-container");
+  fraseContainer.textContent = getRandomFrase(); // Mostrar una frase inicial
+
+  // Contenedor de botones
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.classList.add("buttons-container");
+
+  // Botón 1: GRACIAS, TQM
+  const btnGracias = document.createElement("button");
+  btnGracias.textContent = "GRACIAS, TQM";
+  btnGracias.classList.add("final-btn");
+  btnGracias.addEventListener("click", () => {
+    showLovePage(nombre);
+  });
+
+  // Botón 2: UNA MÁS
+  const btnUnaMas = document.createElement("button");
+  btnUnaMas.textContent = "UNA MÁS";
+  btnUnaMas.classList.add("final-btn");
+  btnUnaMas.addEventListener("click", () => {
+    // Cambia la frase
+    fraseContainer.textContent = getRandomFrase();
+  });
+
+  // Botón 3: REGRESAR (volver a ingresar el nombre)
+  const btnRegresar = document.createElement("button");
+  btnRegresar.textContent = "REGRESAR";
+  btnRegresar.classList.add("final-btn");
+  btnRegresar.addEventListener("click", () => {
+    showNamePrompt();
+  });
+
+  // Agregar los botones al contenedor
+  buttonsContainer.appendChild(btnGracias);
+  buttonsContainer.appendChild(btnUnaMas);
+  buttonsContainer.appendChild(btnRegresar);
+
+  // Agregar todo al finalPage
+  finalPage.appendChild(logoImg);
+  finalPage.appendChild(saludo);
+  finalPage.appendChild(fraseContainer);
+  finalPage.appendChild(buttonsContainer);
+
+  document.body.appendChild(finalPage);
 }
 
-// ============================
-// Código existente de final.js
-// ============================
+/*****************************************************
+ * 4) PANTALLA LOVE (GRACIAS, TQM)
+ *****************************************************/
+function showLovePage(nombre) {
+  // Limpiar el body
+  document.body.innerHTML = "";
 
+  // Contenedor principal
+  const lovePage = document.createElement("div");
+  lovePage.classList.add("love-page");
+
+  // Título
+  const loveTitle = document.createElement("h1");
+  loveTitle.textContent = "¡Te queremos mucho!";
+  
+  // Mensaje especial
+  const loveMsg = document.createElement("p");
+  loveMsg.innerHTML = `
+    Nosotros también te queremos mucho, pero lo más importante es que tú lo hagas siempre 🫶🏼
+    <br/>
+    y recuerda que una QUEEN, siempre va para arriba y con la corona bien puesta
+  `;
+
+  // Botón para volver a la pantalla de frases
+  const btnVolver = document.createElement("button");
+  btnVolver.textContent = "VOLVER";
+  btnVolver.classList.add("final-btn");
+  btnVolver.addEventListener("click", () => {
+    showPersonalizedMessage(nombre);
+  });
+
+  lovePage.appendChild(loveTitle);
+  lovePage.appendChild(loveMsg);
+  lovePage.appendChild(btnVolver);
+
+  document.body.appendChild(lovePage);
+}
+
+/*****************************************************
+ * 5) CÓDIGO ORIGINAL DE final.js (animaciones iniciales)
+ *****************************************************/
 setTimeout(() => {
-  // Contenedor centrado para el texto final
+  // Contenedor centrado
   const container = document.createElement("div");
   container.style.position = "fixed";
   container.style.top = "50%";
@@ -257,7 +361,7 @@ setTimeout(() => {
   function animateButtonPop() {
     const line4El = document.getElementById("line4");
     const buttonEl = document.createElement("button");
-    buttonEl.textContent = "SOY LA QUEEN"; // Texto en mayúsculas
+    buttonEl.textContent = "SOY LA QUEEN";
     buttonEl.style.backgroundColor = "#F7EBDB";
     buttonEl.style.color = "#D82B02";
     buttonEl.style.border = "none";
