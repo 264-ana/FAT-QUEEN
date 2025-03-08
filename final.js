@@ -216,3 +216,24 @@ setTimeout(() => {
   document.body.appendChild(brandContainer);
 
 }, 11600);
+container.innerHTML = `
+  <div id="grid" class="final-grid">
+    <!-- Fila 1 -->
+    <div id="line1" class="final-line final-line1">
+      HOY, TÚ ERES LA
+    </div>
+
+    <!-- Fila 2: "QUEEN" -->
+    <div id="line2" class="final-line final-line2">
+      QUEEN
+    </div>
+
+    <!-- Fila 3: Texto secundario -->
+    <div id="line3" class="final-line final-line3">
+      (No importa qué día lo leas)
+    </div>
+
+    <!-- Fila 4: Contenedor del botón -->
+    <div id="line4" class="final-line final-line4"></div>
+  </div>
+`;
