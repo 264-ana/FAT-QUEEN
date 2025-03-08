@@ -50,7 +50,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 2cm;         /* en móviles se ajusta en media query */
+  padding: 2cm;
   box-sizing: border-box;
 }
 
@@ -170,56 +170,30 @@ body {
     max-width: 100%;
   }
 }
-/* Estilos por defecto (pantallas grandes) */
-.final-grid {
-  position: relative;
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-  align-items: center;
-  justify-items: center;
-  padding: 2rem;
+
+/* ========================================= */
+/*  NUEVA CLASE PARA EL CONTENEDOR FINAL    */
+/* ========================================= */
+.final-container {
+  /* Mismos estilos que tenías en el container, pero en CSS */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  text-align: center;
+  font-family: 'Flame', Arial, sans-serif;
+  color: #F7EBDB;
+
+  /* Controlar el ancho máximo y centrar */
+  max-width: 90%;
+  margin: 0 auto;
 }
 
-.final-line1 {
-  font-size: 3rem;
-  margin: 0 0 0.1rem 0;
-  line-height: 0.8;
-}
-
-.final-line2 {
-  font-size: 8rem;
-  margin: 0 0 2rem 0;
-  line-height: 0.8;
-  position: relative;
-}
-
-.final-line3 {
-  font-size: 1.4rem;
-  margin: 0;
-  line-height: 1.2;
-  color: #FD933A;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
-  .final-grid {
-    padding: 1rem;
-  }
-
-  .final-line1 {
-    font-size: 2rem;
-    margin: 0 1rem 0.1rem 1rem;
-  }
-
-  .final-line2 {
-    font-size: 4rem;
-    margin: 0 1rem 2rem 1rem;
-  }
-
-  .final-line3 {
-    font-size: 1rem;
-    margin: 0 1rem;
+/* Si quieres reducir más el ancho en pantallas grandes, 
+   ajusta esta media query */
+@media (min-width: 769px) {
+  .final-container {
+    max-width: 600px; /* Ajusta según tu preferencia */
   }
 }

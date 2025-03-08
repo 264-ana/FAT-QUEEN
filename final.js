@@ -1,15 +1,18 @@
 // Esperamos a que finalice la animación de los nombres (11.6s desde que inició todo)
 setTimeout(() => {
-  // Contenedor centrado
+  // Contenedor centrado con la clase .final-container
   const container = document.createElement("div");
-  container.style.position = "fixed";
-  container.style.top = "50%";
-  container.style.left = "50%";
-  container.style.transform = "translate(-50%, -50%)";
-  container.style.zIndex = "10000";
-  container.style.textAlign = "center";
-  container.style.fontFamily = "'Flame', Arial, sans-serif";
-  container.style.color = "#F7EBDB";
+  container.classList.add("final-container"); // <-- CLASE IMPORTANTE
+
+  // Ya no necesitas estilos inline para el container, porque están en .final-container
+  // container.style.position = "fixed";
+  // container.style.top = "50%";
+  // container.style.left = "50%";
+  // container.style.transform = "translate(-50%, -50%)";
+  // container.style.zIndex = "10000";
+  // container.style.textAlign = "center";
+  // container.style.fontFamily = "'Flame', Arial, sans-serif";
+  // container.style.color = "#F7EBDB";
 
   // Estructura en grid
   container.innerHTML = `
@@ -204,7 +207,6 @@ setTimeout(() => {
   byText.style.fontFamily = "'Flame', Arial, sans-serif";
   byText.style.color = "#F7EBDB";
 
-  // Ajusta la ruta de la imagen a ./FOTOS/FGB.png
   const logoImg = document.createElement("img");
   logoImg.src = "./FOTOS/FGB.png";
   logoImg.alt = "Fat Guys Logo";
@@ -216,24 +218,3 @@ setTimeout(() => {
   document.body.appendChild(brandContainer);
 
 }, 11600);
-container.innerHTML = `
-  <div id="grid" class="final-grid">
-    <!-- Fila 1 -->
-    <div id="line1" class="final-line final-line1">
-      HOY, TÚ ERES LA
-    </div>
-
-    <!-- Fila 2: "QUEEN" -->
-    <div id="line2" class="final-line final-line2">
-      QUEEN
-    </div>
-
-    <!-- Fila 3: Texto secundario -->
-    <div id="line3" class="final-line final-line3">
-      (No importa qué día lo leas)
-    </div>
-
-    <!-- Fila 4: Contenedor del botón -->
-    <div id="line4" class="final-line final-line4"></div>
-  </div>
-`;
