@@ -1,21 +1,38 @@
 /*****************************************************
- * 1) FRASES MOTIVADORAS ALEATORIAS
+ * 1) TEXTOS ALEATORIOS (con placeholder *nombre*)
  *****************************************************/
 const frasesAleatorias = [
-  "Eres más fuerte de lo que piensas.",
-  "Cada día es una nueva oportunidad para brillar.",
-  "No olvides sonreír: tu luz puede iluminar a otros.",
-  "Confía en ti, y el resto llegará solo.",
-  "Una QUEEN siempre se levanta, incluso con la corona torcida."
+  `Sabías qué ... Cada cicatriz cuenta la historia de una batalla ganada. Deja que cada tropiezo te impulse a levantarte, porque no importa cuántas veces caigas, esa corona nunca saldrá de tu cabeza 🤍 así que sigue así de fuerte y aferrada, que todo tiene una recompensa *nombre*`,
+  
+  `Parece un lindo día para contarte una historia ... En un pequeño jardín, una semilla se sentía insignificante y olvidada. Sin embargo, al enfrentar el frío invierno, decidió crecer. Con el tiempo, se transformó en un árbol robusto y frondoso, cuya sombra aliviaba a quienes se refugiaban en él. La semilla aprendió que cada adversidad es una oportunidad para florecer. ¡Esa semilla eres tú *nombre* y queremos verte siempre fuerte!`,
+  
+  `No conocemos tu historia, ni hemos visto tus cicatrices, pero sabemos que si llegaste hasta aquí es porque eres capaz de muchos más, y estamos seguros de que lograrás mucho más. Estamos muy orgullosos de ti *nombre*`,
+  
+  `Aquí te dejamos un cuento para ti... En algún rincón del universo, una oruga soñaba con volar y alcanzar los cielos. Con cada obstáculo y cada cambio, fue tejiendo su propio destino hasta transformarse en una mariposa radiante. Tú, *nombre*, también tienes la capacidad de reinventarte, de dejar atrás lo viejo para abrir las alas y abrazar un futuro lleno de color y luz. ¡Confía en tu proceso!`,
+  
+  `Por si lo haz olvidado... recuerda que la vida es un constante ir y venir, una danza entre lágrimas y sonrisas. Como dice el refrán, “no hay mal que por bien no venga”. Cada tropiezo es una lección y cada caída, una invitación a levantarse con más fuerza. Hoy, no importa qué día lo leas, celebramos la mujer que eres, *nombre*, y la mujer que estás destinada a ser. ¡Sigue adelante, que tu fortaleza inspira a quienes te rodean!`,
+  
+  `Dicen que en la oscuridad es cuando brillan las estrellas. Cada dificultad ha sido una chispa que encendió tu luz interior, *nombre*. Aunque el camino parezca incierto, tu determinación transforma cada obstáculo en un escalón hacia tus sueños. “La fe mueve montañas” es un recordatorio de que tu fuerza, por pequeña que parezca en algún momento, tiene el poder de cambiarlo todo.`,
+  
+  `No sabemos lo que estés pasando ahora, pero sabemos que saldrás de eso. Como dice el refrán, “después de la tormenta siempre llega la calma”. Recuerda que cada desafío es una oportunidad para crecer, y tu fuerza interior te guiará a días más brillantes. ¡Confía en ti, *nombre*, porque eres capaz de transformar la adversidad en triunfo!`,
+  
+  `Amiga, no conocemos cada detalle de tus luchas, pero estamos seguros de que tienes el coraje para superarlas. Piensa en esa historia de la mariposa: en su capullo, se prepara para desplegar unas alas hermosas. Así eres tú, *nombre*, lista para emerger con una fuerza renovada. “La fe mueve montañas” es un recordatorio de que, con constancia, todo es posible.`,
+  
+  `No sabemos lo que estés viviendo en este momento, pero sabemos que tu resiliencia es inquebrantable. Recuerda la historia de aquella flor que, a pesar del invierno, encontró la manera de florecer. Tú, *nombre*, también puedes transformar el dolor en belleza. Como dice el proverbio, “cada nube tiene un rayo de sol esperando a brillar”. ¡Sigue adelante, que el sol siempre regresa!`,
+  
+  `No sabemos lo que estés pasando en este preciso momento, pero sabemos que cada experiencia te está moldeando en una persona aún más fuerte. Como en la historia de la oruga que se transforma en mariposa, tú también tienes el poder de reinventarte. *nombre*, cada cicatriz es una medalla de valor, y cada caída, una lección que te prepara para volar alto. ¡Nunca olvides lo valiosa y resiliente que eres!`
 ];
 
-function getRandomFrase() {
+/*****************************************************
+ * 2) OBTENER FRASE ALEATORIA (reemplaza *nombre*)
+ *****************************************************/
+function getRandomFrase(nombre) {
   const index = Math.floor(Math.random() * frasesAleatorias.length);
-  return frasesAleatorias[index];
+  return frasesAleatorias[index].replace(/\*nombre\*/gi, nombre);
 }
 
 /*****************************************************
- * 2) FORMULARIO PARA INGRESAR NOMBRE
+ * 3) FORMULARIO PARA INGRESAR NOMBRE
  *****************************************************/
 function showNamePrompt() {
   // Limpiar todo para que se vea "desde cero"
@@ -95,13 +112,13 @@ function showNamePrompt() {
 }
 
 /*****************************************************
- * 3) PANTALLA FINAL (Hola Nombre + FRASE)
+ * 4) PANTALLA FINAL (Hola Nombre + FRASE ALEATORIA + Botones)
  *****************************************************/
 function showPersonalizedMessage(nombre) {
-  // Limpiamos el body para que se vea como una nueva página
+  // Limpiar el body para que se vea como una nueva página
   document.body.innerHTML = "";
 
-  // Creamos un contenedor principal
+  // Crear contenedor principal
   const finalPage = document.createElement("div");
   finalPage.classList.add("final-page");
 
@@ -115,16 +132,16 @@ function showPersonalizedMessage(nombre) {
   const saludo = document.createElement("h1");
   saludo.innerHTML = `Hola ${nombre}! <span style="font-size:1.5rem;">👑</span>`;
 
-  // Contenedor de frase
+  // Contenedor de la frase
   const fraseContainer = document.createElement("div");
   fraseContainer.classList.add("frase-container");
-  fraseContainer.textContent = getRandomFrase(); // Mostrar una frase inicial
+  fraseContainer.textContent = getRandomFrase(nombre); // Frase inicial
 
   // Contenedor de botones
   const buttonsContainer = document.createElement("div");
   buttonsContainer.classList.add("buttons-container");
 
-  // Botón 1: GRACIAS, TQM
+  // Botón 1: GRACIAS, TQM -> Pantalla LOVE
   const btnGracias = document.createElement("button");
   btnGracias.textContent = "GRACIAS, TQM";
   btnGracias.classList.add("final-btn");
@@ -132,16 +149,15 @@ function showPersonalizedMessage(nombre) {
     showLovePage(nombre);
   });
 
-  // Botón 2: UNA MÁS
+  // Botón 2: UNA MÁS -> Cambiar la frase
   const btnUnaMas = document.createElement("button");
   btnUnaMas.textContent = "UNA MÁS";
   btnUnaMas.classList.add("final-btn");
   btnUnaMas.addEventListener("click", () => {
-    // Cambia la frase
-    fraseContainer.textContent = getRandomFrase();
+    fraseContainer.textContent = getRandomFrase(nombre);
   });
 
-  // Botón 3: REGRESAR (volver a ingresar el nombre)
+  // Botón 3: REGRESAR -> Volver a ingresar el nombre
   const btnRegresar = document.createElement("button");
   btnRegresar.textContent = "REGRESAR";
   btnRegresar.classList.add("final-btn");
@@ -149,7 +165,7 @@ function showPersonalizedMessage(nombre) {
     showNamePrompt();
   });
 
-  // Agregar los botones al contenedor
+  // Agregar botones al contenedor
   buttonsContainer.appendChild(btnGracias);
   buttonsContainer.appendChild(btnUnaMas);
   buttonsContainer.appendChild(btnRegresar);
@@ -164,20 +180,20 @@ function showPersonalizedMessage(nombre) {
 }
 
 /*****************************************************
- * 4) PANTALLA LOVE (GRACIAS, TQM)
+ * 5) PANTALLA LOVE (Mensaje de "GRACIAS, TQM")
  *****************************************************/
 function showLovePage(nombre) {
   // Limpiar el body
   document.body.innerHTML = "";
 
-  // Contenedor principal
+  // Crear contenedor principal
   const lovePage = document.createElement("div");
   lovePage.classList.add("love-page");
 
   // Título
   const loveTitle = document.createElement("h1");
   loveTitle.textContent = "¡Te queremos mucho!";
-  
+
   // Mensaje especial
   const loveMsg = document.createElement("p");
   loveMsg.innerHTML = `
@@ -202,10 +218,10 @@ function showLovePage(nombre) {
 }
 
 /*****************************************************
- * 5) CÓDIGO ORIGINAL DE final.js (animaciones iniciales)
+ * 6) CÓDIGO ORIGINAL DE final.js (animaciones iniciales)
  *****************************************************/
 setTimeout(() => {
-  // Contenedor centrado
+  // Contenedor centrado (animación inicial)
   const container = document.createElement("div");
   container.style.position = "fixed";
   container.style.top = "50%";

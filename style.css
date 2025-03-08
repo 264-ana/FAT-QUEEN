@@ -180,7 +180,7 @@ body {
 
 /* Saludo grande */
 .final-page h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #D82B02;
   margin-bottom: 1rem;
 }
@@ -189,7 +189,7 @@ body {
 .frase-container {
   color: #FD933A;
   font-size: 1.2rem;
-  max-width: 600px;
+  max-width: 700px;
   line-height: 1.4;
   margin: 1rem 0;
 }
@@ -220,7 +220,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Love page (el texto final de "Nosotros también te queremos...") */
+/* Love page (texto final de "GRACIAS, TQM") */
 .love-page h1 {
   font-size: 2rem;
   color: #D82B02;
