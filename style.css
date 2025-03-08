@@ -50,7 +50,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 2cm;
+  padding: 2cm;         /* en móviles se ajusta en media query */
   box-sizing: border-box;
 }
 
@@ -70,10 +70,10 @@ body {
   color: #FD933A;
   font-weight: bold;
   position: relative;
-  white-space: nowrap;
-  max-width: 90%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap;       /* (Por defecto) */
+  max-width: 90%;            /* (Por defecto) */
+  overflow: hidden;          /* (Por defecto) */
+  text-overflow: ellipsis;   /* (Por defecto) */
 }
 
 .name.outline {
@@ -159,6 +159,7 @@ body {
 
 /* Ajustes responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
+  /* Ajusta padding para que quepan mejor los nombres */
   #preloader-names {
     padding: 1rem;
   }
@@ -166,34 +167,27 @@ body {
     width: calc(100% - 2rem);
     height: calc(100% - 2rem);
   }
+  
+  /* 
+    1) Que los nombres se vean completos:
+       Quitamos nowrap, overflow y ellipsis en móvil
+  */
   .name {
-    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: 100%; /* Para que use todo el ancho si necesita */
   }
-}
 
-/* ========================================= */
-/*  NUEVA CLASE PARA EL CONTENEDOR FINAL    */
-/* ========================================= */
-.final-container {
-  /* Mismos estilos que tenías en el container, pero en CSS */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  text-align: center;
-  font-family: 'Flame', Arial, sans-serif;
-  color: #F7EBDB;
-
-  /* Controlar el ancho máximo y centrar */
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-/* Si quieres reducir más el ancho en pantallas grandes, 
-   ajusta esta media query */
-@media (min-width: 769px) {
-  .final-container {
-    max-width: 600px; /* Ajusta según tu preferencia */
+  /*
+    2) Reducir tamaño de "HOY, TÚ ERES LA" y "QUEEN" en móvil
+       Sin quitar la lógica dinámica de final.js
+       (el script seguirá escalando "QUEEN" en base al ancho de "HOY, TÚ ERES LA")
+  */
+  #line1 {
+    font-size: 1.5rem !important;
+  }
+  #line2 {
+    font-size: 4rem !important;
   }
 }

@@ -1,29 +1,58 @@
 // Esperamos a que finalice la animación de los nombres (11.6s desde que inició todo)
 setTimeout(() => {
-  // Contenedor centrado con la clase .final-container
+  // Contenedor centrado
   const container = document.createElement("div");
-  container.classList.add("final-container");
+  container.style.position = "fixed";
+  container.style.top = "50%";
+  container.style.left = "50%";
+  container.style.transform = "translate(-50%, -50%)";
+  container.style.zIndex = "10000";
+  container.style.textAlign = "center";
+  container.style.fontFamily = "'Flame', Arial, sans-serif";
+  container.style.color = "#F7EBDB";
 
-  // Estructura en grid con clases en lugar de estilos en línea
+  // Estructura en grid
   container.innerHTML = `
-    <div id="grid" class="final-grid">
+    <div id="grid" style="
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto auto auto;
+      align-items: center;
+      justify-items: center;
+    ">
       <!-- Fila 1 -->
-      <div id="line1" class="final-line1 final-line">
+      <div id="line1" style="
+        font-size: 3rem;
+        margin: 0 0 0.1rem 0; 
+        line-height: 0.8;
+      ">
         HOY, TÚ ERES LA
       </div>
 
       <!-- Fila 2: "QUEEN" -->
-      <div id="line2" class="final-line2 final-line">
+      <div id="line2" style="
+        font-size: 8rem;
+        margin: 0 0 2rem 0; 
+        line-height: 0.8;
+        position: relative;
+      ">
         QUEEN
       </div>
 
       <!-- Fila 3: Texto secundario -->
-      <div id="line3" class="final-line3 final-line">
+      <div id="line3" style="
+        font-size: 1.4rem;
+        margin: 0;
+        line-height: 1.2;
+        color: #FD933A;
+        opacity: 0;
+        transform: translateY(20px);
+      ">
         (No importa qué día lo leas)
       </div>
 
       <!-- Fila 4: Contenedor del botón -->
-      <div id="line4" class="final-line4 final-line"></div>
+      <div id="line4" style="margin-top: 1rem;"></div>
     </div>
   `;
 
@@ -53,18 +82,16 @@ setTimeout(() => {
   const line1El = document.getElementById("line1");
   applyExplosionEffectByLetters(line1El, 0.1);
 
-  // Ajustar "QUEEN" al ancho de "HOY, TÚ ERES LA" solo en pantallas grandes
+  // Ajustar "QUEEN" al ancho de "HOY, TÚ ERES LA"
   const line2El = document.getElementById("line2");
   requestAnimationFrame(() => {
-    if (window.innerWidth > 768) {
-      const line1Width = line1El.getBoundingClientRect().width;
-      const line2Width = line2El.getBoundingClientRect().width;
-      if (line2Width > 0) {
-        const scaleFactor = line1Width / line2Width;
-        const currentFontSize = parseFloat(window.getComputedStyle(line2El).fontSize);
-        const newSize = currentFontSize * scaleFactor;
-        line2El.style.fontSize = newSize + "px";
-      }
+    const line1Width = line1El.getBoundingClientRect().width;
+    const line2Width = line2El.getBoundingClientRect().width;
+    if (line2Width > 0) {
+      const scaleFactor = line1Width / line2Width;
+      const currentFontSize = parseFloat(window.getComputedStyle(line2El).fontSize);
+      const newSize = currentFontSize * scaleFactor;
+      line2El.style.fontSize = newSize + "px";
     }
     // Ocultar mientras no se anima
     line2El.style.opacity = "0";
@@ -152,7 +179,6 @@ setTimeout(() => {
 
     line4El.appendChild(buttonEl);
 
-    // Forzar reflow
     void buttonEl.offsetWidth;
     buttonEl.style.transform = "scale(1)";
     buttonEl.style.opacity = "1";
@@ -178,6 +204,7 @@ setTimeout(() => {
   byText.style.fontFamily = "'Flame', Arial, sans-serif";
   byText.style.color = "#F7EBDB";
 
+  // Ajusta la ruta de la imagen a ./FOTOS/FGB.png
   const logoImg = document.createElement("img");
   logoImg.src = "./FOTOS/FGB.png";
   logoImg.alt = "Fat Guys Logo";
