@@ -3,7 +3,7 @@ const nombres = [
   "MARÍA", "CARMEN", "BÁRBARA", "NATHALY", "VERÓNICA", "MARY", "DANI", "ANDREA", "ANTUANE", "GABRIELA",
   "GIANELLA", "DAYANNA", "GUADALUPE", "NATHALIA", "FRANSHESCA", "ANGELA", "VICTORIA", "SOFÍA", "LUCÍA", "PAULA",
   "MARIANA", "ESTEFANÍA", "REBECA", "FABIOLA", "MÓNICA", "CAROLINA", "ISABELLA", "PATRICIA", "MARTA", "JULIANA",
-  "LORENA", "DANIELA", "EUGENIA", "MIRANDA", "SAMANTHA", "CLARA", "INES", "CECILIA", "FLORENCIA", "RAQUEL"
+  "LORENA", "DANIELA", "CAROLINA", "MIRANDA", "SAMANTHA", "CLARA", "INES", "MARY", "MÓNICA", "RAQUEL"
 ];
 
 function colocarNombres() {
@@ -65,4 +65,3 @@ window.onload = function() {
     }, 1000);
   }, 1500);
 };
-
