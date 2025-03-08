@@ -2,8 +2,8 @@ const nombres = [
   "AZUCENA", "ROMINA", "ANA", "MILAGROS", "VALERIA", "ALESSANDRA", "SOL", "ANNIE", "ALE", "JIMENA",
   "MARÍA", "CARMEN", "BÁRBARA", "NATHALY", "VERÓNICA", "MARY", "DANI", "ANDREA", "ANTUANE", "GABRIELA",
   "GIANELLA", "DAYANNA", "GUADALUPE", "NATHALIA", "FRANSHESCA", "ANGELA", "VICTORIA", "SOFÍA", "LUCÍA", "PAULA",
-  "MARIANA", "ESTEFANÍA", "REBECA", "FABIOLA", "MÓNICA", "CAROLINA", "ISABELLA", "PATRICIA", "MARTA", "JULIANA",
-  "LORENA", "DANIELA", "EUGENIA", "MIRANDA", "SAMANTHA", "CLARA", "INES", "CECILIA", "FLORENCIA", "RAQUEL"
+  "MARIANA", "ESTEFANÍA", "REBECA", "FABIOLA", "MÓNICA", "CAROLINA", "ISABELLA", "PATRICIA", "MARTA", "XIMENA",
+  "LORENA", "DANIELA", "INDIRA", "FAVIANA", "SAMANTHA", "CLARA", "INES", "CECILIA", "LUCERO", "RAQUEL", "YAHAIRA", "NAYELI", "FÁTIMA"
 ];
 
 function colocarNombres() {
@@ -43,7 +43,6 @@ window.onload = function() {
   // Retraso inicial de 1.5s antes de ocultar el logo
   setTimeout(() => {
     const logoPreloader = document.getElementById('preloader-logo');
-    // Iniciar fade-out del logo
     logoPreloader.classList.add('hidden');
 
     // Esperar a que termine el fade-out
@@ -60,7 +59,6 @@ window.onload = function() {
         namesPreloader.classList.add('hidden');
         setTimeout(() => {
           namesPreloader.style.display = 'none';
-          // Cambiar color de fondo del body
           document.body.style.backgroundColor = "#D82B02";
         }, 1000);
       }, 8000);

@@ -2,25 +2,164 @@
  * 1) TEXTOS ALEATORIOS (con placeholder *nombre*)
  *****************************************************/
 const frasesAleatorias = [
-  `Sabías qué ... Cada cicatriz cuenta la historia de una batalla ganada. Deja que cada tropiezo te impulse a levantarte, porque no importa cuántas veces caigas, esa corona nunca saldrá de tu cabeza 🤍 así que sigue así de fuerte y aferrada, que todo tiene una recompensa *nombre*`,
-  
-  `Parece un lindo día para contarte una historia ... En un pequeño jardín, una semilla se sentía insignificante y olvidada. Sin embargo, al enfrentar el frío invierno, decidió crecer. Con el tiempo, se transformó en un árbol robusto y frondoso, cuya sombra aliviaba a quienes se refugiaban en él. La semilla aprendió que cada adversidad es una oportunidad para florecer. ¡Esa semilla eres tú *nombre* y queremos verte siempre fuerte!`,
-  
-  `No conocemos tu historia, ni hemos visto tus cicatrices, pero sabemos que si llegaste hasta aquí es porque eres capaz de muchos más, y estamos seguros de que lograrás mucho más. Estamos muy orgullosos de ti *nombre*`,
-  
-  `Aquí te dejamos un cuento para ti... En algún rincón del universo, una oruga soñaba con volar y alcanzar los cielos. Con cada obstáculo y cada cambio, fue tejiendo su propio destino hasta transformarse en una mariposa radiante. Tú, *nombre*, también tienes la capacidad de reinventarte, de dejar atrás lo viejo para abrir las alas y abrazar un futuro lleno de color y luz. ¡Confía en tu proceso!`,
-  
-  `Por si lo haz olvidado... recuerda que la vida es un constante ir y venir, una danza entre lágrimas y sonrisas. Como dice el refrán, “no hay mal que por bien no venga”. Cada tropiezo es una lección y cada caída, una invitación a levantarse con más fuerza. Hoy, no importa qué día lo leas, celebramos la mujer que eres, *nombre*, y la mujer que estás destinada a ser. ¡Sigue adelante, que tu fortaleza inspira a quienes te rodean!`,
-  
-  `Dicen que en la oscuridad es cuando brillan las estrellas. Cada dificultad ha sido una chispa que encendió tu luz interior, *nombre*. Aunque el camino parezca incierto, tu determinación transforma cada obstáculo en un escalón hacia tus sueños. “La fe mueve montañas” es un recordatorio de que tu fuerza, por pequeña que parezca en algún momento, tiene el poder de cambiarlo todo.`,
-  
   `No sabemos lo que estés pasando ahora, pero sabemos que saldrás de eso. Como dice el refrán, “después de la tormenta siempre llega la calma”. Recuerda que cada desafío es una oportunidad para crecer, y tu fuerza interior te guiará a días más brillantes. ¡Confía en ti, *nombre*, porque eres capaz de transformar la adversidad en triunfo!`,
   
   `Amiga, no conocemos cada detalle de tus luchas, pero estamos seguros de que tienes el coraje para superarlas. Piensa en esa historia de la mariposa: en su capullo, se prepara para desplegar unas alas hermosas. Así eres tú, *nombre*, lista para emerger con una fuerza renovada. “La fe mueve montañas” es un recordatorio de que, con constancia, todo es posible.`,
   
   `No sabemos lo que estés viviendo en este momento, pero sabemos que tu resiliencia es inquebrantable. Recuerda la historia de aquella flor que, a pesar del invierno, encontró la manera de florecer. Tú, *nombre*, también puedes transformar el dolor en belleza. Como dice el proverbio, “cada nube tiene un rayo de sol esperando a brillar”. ¡Sigue adelante, que el sol siempre regresa!`,
   
-  `No sabemos lo que estés pasando en este preciso momento, pero sabemos que cada experiencia te está moldeando en una persona aún más fuerte. Como en la historia de la oruga que se transforma en mariposa, tú también tienes el poder de reinventarte. *nombre*, cada cicatriz es una medalla de valor, y cada caída, una lección que te prepara para volar alto. ¡Nunca olvides lo valiosa y resiliente que eres!`
+  `No sabemos lo que estés pasando en este preciso momento, pero sabemos que cada experiencia te está moldeando en una persona aún más fuerte. Como en la historia de la oruga que se transforma en mariposa, tú también tienes el poder de reinventarte. *nombre*, cada cicatriz es una medalla de valor, y cada caída, una lección que te prepara para volar alto. ¡Nunca olvides lo valiosa y resiliente que eres!`,
+  
+  `Sabías qué ... Cada cicatriz cuenta la historia de una batalla ganada. Deja que cada tropiezo te impulse a levantarte, porque no importa cuántas veces caigas, esa corona nunca saldrá de tu cabeza 🤍 así que sigue así de fuerte y aferrada, que todo tiene una recompensa *nombre*`,
+  
+  `Parece un lindo día para contarte una historia ... En un pequeño jardín, una semilla se sentía insignificante y olvidada. Sin embargo, al enfrentar el frío invierno, decidió crecer. Con el tiempo, se transformó en un árbol robusto y frondoso, cuya sombra aliviaba a quienes se refugiaban en él. La semilla aprendió que cada adversidad es una oportunidad para florecer. ¡Esa semilla eres tú *nombre* y queremos verte siempre fuerte!`,
+  
+  `Aquí te dejamos un cuento para ti... En algún rincón del universo, una oruga soñaba con volar y alcanzar los cielos. Con cada obstáculo y cada cambio, fue tejiendo su propio destino hasta transformarse en una mariposa radiante. Tú, *nombre*, también tienes la capacidad de reinventarte, de dejar atrás lo viejo para abrir las alas y abrazar un futuro lleno de color y luz. ¡Confía en tu proceso!`,
+  
+  `Por si nadie te lo dijo hoy: no eres solo la inspiración de quienes te admiran, sino también la creadora de tu propia obra maestra. Eres capaz de dar forma a tus sueños y de plasmar tu esencia en cada trazo y en cada verso. ¡Cree en tu poder, *nombre*!`,
+  
+  `Por si lo haz olvidado... recuerda que la vida es un constante ir y venir, una danza entre lágrimas y sonrisas. Como dice el refrán, “no hay mal que por bien no venga”. Cada tropiezo es una lección y cada caída, una invitación a levantarse con más fuerza. Hoy, no importa qué día lo leas, celebramos la mujer que eres, *nombre*, y la mujer que estás destinada a ser. ¡Sigue adelante, que tu fortaleza inspira a quienes te rodean!`,
+  
+  `Dicen que en la oscuridad es cuando brillan las estrellas. Cada dificultad ha sido una chispa que encendió tu luz interior, *nombre*. Aunque el camino parezca incierto, tu determinación transforma cada obstáculo en un escalón hacia tus sueños. “La fe mueve montañas” es un recordatorio de que tu fuerza, por pequeña que parezca en algún momento, tiene el poder de cambiarlo todo.`,
+  
+  `Por si nadie te lo dijo hoy, tu sonrisa ilumina el mundo.`,
+  
+  `Por si nadie te lo dijo hoy, eres increíblemente fuerte y única.`,
+  
+  `Por si nadie te lo dijo hoy, tu bondad hace la diferencia en cada rincón.`,
+  
+  `Por si nadie te lo dijo hoy, cada pequeño gesto tuyo transforma el día de alguien.`,
+  
+  `Por si nadie te lo dijo hoy, tu luz interior es un regalo para todos los que te rodean.`,
+  
+  `Por si nadie te lo dijo hoy:
+¡Gracias! Gracias por levantarte de esa cama y salir a luchar, incluso cuando el camino parece empedrado. Tu coraje y determinación transforman cada día en una nueva oportunidad para brillar. Sigue adelante, *nombre*, porque tu fuerza inspira a todos los que te rodean.`,
+  
+  `Por si nadie te lo dijo hoy:
+¡Gracias! Gracias por encontrar el valor de salir a luchar, a pesar de las batallas internas que a veces parecen imposibles. Cada paso que das es una victoria y un recordatorio de tu increíble capacidad para transformar la adversidad en fuerza. Eres un ejemplo de resiliencia, *nombre*.`,
+  
+  `Por si nadie te lo dijo hoy:
+¡Gracias! Gracias por levantarte de esa cama y enfrentar el día con valentía. Tu determinación y la forma en que te enfrentas a cada desafío son la luz que ilumina incluso los momentos más oscuros. No olvides lo poderosa que eres, *nombre*.`,
+  
+  `Recuerda que… NO NECESITAS DEMOSTRARLE TU PROGRESO A NADIE PARA QUE SEA VÁLIDO, hazlo siempre por ti y solo por ti 🤍`,
+  
+  `Recuerda que no solo eres la musa de los artistas, sino que también puedes ser la artista que diseña su propio destino. Toma tus pinceles, tus palabras o tu forma única de expresarte y transforma el mundo a tu manera. ¡No dejes que nadie te limite, *nombre*!`,
+  
+  `Recuerda que… no necesitas pedir permiso para brillar.`,
+  
+  `No olvides que… tu valentía no necesita aprobación.`,
+  
+  `Ten presente que… ser tú misma es tu mayor fortaleza.`,
+  
+  `Jamás dudes de esto: tu voz merece ser escuchada.`,
+  
+  `Grábate esta idea: no hay límites cuando crees en ti.`,
+  
+  `Nunca pierdas de vista que… cada paso te acerca a tu meta.`,
+  
+  `Conviértete en la mujer que tu niña interior soñaba con ser.`,
+  
+  `Sé la voz valiente que tu yo pequeño necesitaba escuchar.`,
+  
+  `Recuerda: cada paso que das inspira a la niña que fuiste.`,
+  
+  `Con cada decisión, honra a la niña que un día fuiste y a la mujer que hoy eres.`,
+  
+  `Sé la guía que hubieras querido tener cuando eras niña.`,
+  
+  `Grábate esta idea: tu autenticidad es la fuerza que impulsa a los demás a creer en lo imposible, así que sigue siendo ejemplo de aquellas personitas que te rodean.`,
+  
+  `No pierdas de vista que, cuando persigues tus pasiones, siembras esperanza en cada paso. Y queremos verte perseguir y lograr esos sueños 🤍`,
+  
+  `Repite conmigo: me gusta todo lo que soy y soy mucho más que suficiente 👑`,
+  
+  `No olvides decirte: me encanta cada parte de mí, porque soy única.`,
+  
+  `Ten presente esto: merezco quererme y respetarme, tal como soy.`,
+  
+  `Recuerda que lo que hoy siembras con amor, mañana florecerá con esperanza ¡Así que no te rindas y ve por ese __________ que tanto deseas. (Llénalo tú misma y grítalo)`,
+  
+  `Repite con nosotros: Hoy decido construir el hábito de repetirme a diario que sí puedo. Así que procede a hacerlo, por favor!`,
+  
+  `Permítete avanzar a tu propio ritmo, sabiendo que cada paso es parte de tu crecimiento.`,
+  
+  `Grábate esta idea: confiar en ti misma es el hábito más poderoso que puedes cultivar.`,
+  
+  `Queremos recordarte que vas por buen camino, ¡sigue adelante!`,
+  
+  `No olvides que cada paso que das es un logro, ¡tú puedes!`,
+  
+  `Es un buen momento para decirte: lo estás haciendo genial, sigue así.`,
+  
+  `Queremos que sepas que tu esfuerzo está dando frutos. ¡Mantén esa energía!`,
+  
+  `Queremos recordarte que seas amable con tus antiguas versiones, porque en ese entonces no sabías lo que hoy sabes.`,
+  
+  `Te invitamos a tratar con compasión a la persona que fuiste, reconociendo que cada etapa te preparó para lo que ahora vives.`,
+  
+  `Nos gustaría que abrazaras cada versión de ti misma, sabiendo que en cada momento hiciste lo mejor que podías con lo que tenías.`,
+  
+  `Te animamos a mirar tu pasado con ternura, entendiendo que la sabiduría que posees hoy es fruto de todas tus experiencias.`,
+  
+  `Queremos recordarte que tus dudas no tienen el poder de apagar tu chispa interior.`,
+  
+  `Te invitamos a mantener viva tu llama creativa, incluso cuando sientas incertidumbre.`,
+  
+  `Recuerda que cada idea que nace en tu mente es una luz que merece brillar.`,
+  
+  `No permitas que los miedos silencien tu inspiración; protege esa pequeña flama con determinación.`,
+  
+  `Deseamos que abraces cada duda como un impulso para encender aún más tu pasión creadora.`,
+  
+  `Eres creativa, dulce, linda, inteligente y si seguimos, nunca terminaríamos. Pero si nosotros, con solo verte sonreír, podemos reconocer todo eso, imagina todo lo que tú ya sabes de ti misma. Solo no lo olvides 🤍`,
+  
+  `Lo estás logrando, guapa, sigue con esa actitud.`,
+  
+  `Vas con todo, QUEEN, no dejes que nada te detenga.`,
+  
+  `Eres pura chispa, QUEEN, y nos encanta verte brillar.`,
+  
+  `Lo estás rompiendo, *nombre*, no lo dudes ni por un segundo.`,
+  
+  `Date cuenta de lo poderosa que eres, guapa y más aún con esa sonrisa, ¡eres imparable!`,
+  
+  `Recuerda que tú eres tu proyecto más importante: invierte tiempo y cariño en ti.`,
+  
+  `No olvides que construirte a ti misma es la mejor inversión que puedes hacer.`,
+  
+  `Ten presente que tu bienestar es prioridad: cuídate, valórate y crece cada día.`,
+  
+  `Acuérdate de nutrir tus sueños, porque en ellos se forja la persona que deseas ser.`,
+  
+  `Recuerda que eres capaz de lograr todo lo que te propongas.`,
+  
+  `Ten presente que tu fuerza interior es más grande de lo que imaginas.`,
+  
+  `No olvides que cada paso que des confirma tu capacidad de llegar más lejos.`,
+  
+  `Eres más fuerte y valiente de lo que crees: confía en tu potencial.`,
+  
+  `Permítete descubrir hasta dónde puedes llegar, porque sí eres capaz.`,
+  
+  `Hoy se vibra bien pinche alto, sin miedo a nada.`,
+  
+  `Ánimos al 100, porque hoy toca vibrar con todo.`,
+  
+  `Algunas vez alguien sabio dijo: "Y sobre todo, ámense profundamente, porque el amor es capaz de perdonar muchas ofensas."`,
+  
+  `Algunas vez alguien sabio dijo: “Por encima de todo, vístanse de amor, que es el vínculo perfecto."`,
+  
+  `Recordatorio del día: Haz todo con amor.`,
+  
+  `¿Quién te dijo que necesitas maquillaje? Si está de más ponerle filtros a un paisaje ¿Qué te hace falta? Dime tú.`,
+  
+  `Si brillas en la multitud ¿Cuál fue el pendejo que te acomplejó? Mami, es que tú ere' una reina, mírate bien 👑 ✦ Te la dedicamos: La Reina de Maluma.`,
+  
+  `Hoy ella se ha puesto color en las pestañas. Hoy le gusta su sonrisa, no se siente una extraña. Hoy sueña lo que quiere sin preocuparse por nada. Hoy es una mujer que se da cuenta de su alma ✦ Te la dedicamos: Ella de Babe.`,
+  
+  `Hoy vas a descubrir que el mundo es solo para ti. Que nadie puede hacerte daño, nadie puede hacerte daño. Hoy vas a comprender. Que el miedo se puede romper con un solo portazo. Hoy vas a hacer reír. Porque tus ojos se han cansado de ser llanto, de ser llanto. Hoy vas a conseguir. Reírte hasta de ti y ver que lo has logrado ✦ Te la dedicamos: Ella de Babe.`,
+  
+  `El espejo me dice "Guapa" Estás en tu mejor etapa. Ay, quiérete, sacúdete. Que lo malo es un TBT. Y ahora estoy bailando (bailando). Ay, sonriendo (sonriendo). Silbando. Nadie me está jodiendo ✦ Te la dedicamos: DPM (DE PXTA MADRE) - Kany García`
 ];
 
 /*****************************************************
@@ -112,7 +251,7 @@ function showNamePrompt() {
 }
 
 /*****************************************************
- * 4) PANTALLA FINAL (Hola Nombre + FRASE ALEATORIA + Botones)
+ * 4) PANTALLA FINAL (Hola Nombre + FRASE + Botones)
  *****************************************************/
 function showPersonalizedMessage(nombre) {
   // Limpiar el body para que se vea como una nueva página
@@ -149,7 +288,7 @@ function showPersonalizedMessage(nombre) {
     showLovePage(nombre);
   });
 
-  // Botón 2: UNA MÁS -> Cambiar la frase
+  // Botón 2: UNA MÁS -> Actualizar la frase
   const btnUnaMas = document.createElement("button");
   btnUnaMas.textContent = "UNA MÁS";
   btnUnaMas.classList.add("final-btn");
@@ -165,7 +304,7 @@ function showPersonalizedMessage(nombre) {
     showNamePrompt();
   });
 
-  // Agregar botones al contenedor
+  // Agregar los botones al contenedor
   buttonsContainer.appendChild(btnGracias);
   buttonsContainer.appendChild(btnUnaMas);
   buttonsContainer.appendChild(btnRegresar);
@@ -197,12 +336,11 @@ function showLovePage(nombre) {
   // Mensaje especial
   const loveMsg = document.createElement("p");
   loveMsg.innerHTML = `
-    Nosotros también te queremos mucho, pero lo más importante es que tú lo hagas siempre 🫶🏼
-    <br/>
+    Nosotros también te queremos mucho, pero lo más importante es que tú lo hagas siempre 🫶🏼<br/>
     y recuerda que una QUEEN, siempre va para arriba y con la corona bien puesta
   `;
 
-  // Botón para volver a la pantalla de frases
+  // Botón para volver a la pantalla final
   const btnVolver = document.createElement("button");
   btnVolver.textContent = "VOLVER";
   btnVolver.classList.add("final-btn");
@@ -314,7 +452,6 @@ setTimeout(() => {
       const newSize = currentFontSize * scaleFactor;
       line2El.style.fontSize = newSize + "px";
     }
-    // Ocultar mientras no se anima
     line2El.style.opacity = "0";
   });
 
@@ -323,7 +460,6 @@ setTimeout(() => {
     const finalQueenEl = document.getElementById("line2");
     const finalFontSize = window.getComputedStyle(finalQueenEl).fontSize;
     
-    // Elemento temporal para la animación
     const tempQueen = document.createElement("div");
     tempQueen.textContent = finalQueenEl.textContent;
     tempQueen.style.position = "absolute";
@@ -332,10 +468,8 @@ setTimeout(() => {
     tempQueen.style.width = finalQueenEl.offsetWidth + "px";
     tempQueen.style.fontFamily = window.getComputedStyle(finalQueenEl).fontFamily;
     tempQueen.style.color = window.getComputedStyle(finalQueenEl).color;
-    // 3x el tamaño final
     tempQueen.style.fontSize = (parseFloat(finalFontSize) * 3) + "px";
     tempQueen.style.lineHeight = finalQueenEl.style.lineHeight;
-    // Inicia a la derecha de la pantalla
     tempQueen.style.transform = "translateX(100vw)";
     tempQueen.style.opacity = "1";
     tempQueen.style.transition = "transform 1.5s ease-in-out";
@@ -343,11 +477,9 @@ setTimeout(() => {
     const gridEl = document.getElementById("grid");
     gridEl.appendChild(tempQueen);
 
-    // Forzar reflow e iniciar la animación
     void tempQueen.offsetWidth;
     tempQueen.style.transform = "translateX(-200vw)";
 
-    // Al terminar, quitar el elemento temporal y mostrar "QUEEN" final con contorno->relleno
     tempQueen.addEventListener("transitionend", function handler() {
       tempQueen.removeEventListener("transitionend", handler);
       tempQueen.parentElement.removeChild(tempQueen);
@@ -398,7 +530,6 @@ setTimeout(() => {
       buttonEl.style.backgroundColor = "#F7EBDB";
     });
     
-    // Al hacer clic, se muestra el prompt para ingresar nombre
     buttonEl.addEventListener("click", () => {
       showNamePrompt();
     });
@@ -410,10 +541,8 @@ setTimeout(() => {
     buttonEl.style.opacity = "1";
   }
 
-  // Iniciar la animación de "QUEEN" después de 500ms
   setTimeout(animateQueenEntrance, 500);
 
-  // "By" + logo en la esquina inferior derecha
   const brandContainer = document.createElement("div");
   brandContainer.style.position = "fixed";
   brandContainer.style.bottom = "1rem";
