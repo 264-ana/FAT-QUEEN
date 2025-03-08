@@ -234,11 +234,18 @@ body {
   margin: 1rem 0;
 }
 @media (max-width: 768px) {
-  /* Reducir el tamaño de fuente para la animación final en móviles */
+  /* Reducir aún más el tamaño de fuente para la animación final en móviles */
   #line1 {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
   }
   #line2 {
-    font-size: 4rem !important;
+    font-size: 3rem !important;
+  }
+  
+  /* Ajuste para que el texto del botón no se divida en dos líneas */
+  #line4 button {
+    font-size: 1rem !important;
+    white-space: nowrap;
   }
 }
+
